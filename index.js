@@ -16,7 +16,7 @@ class Neighborhood {
     return store.deliveries.filter((delivery) => delivery.neighborhoodId === this.id);
   }
   meals() {
-    return this.deliveries().map((meal) => meal.id === neighborhoodId);
+    return this.deliveries().map(delivery => delivery.meal());
   }
 }
 //customer belong to a neighborhood
