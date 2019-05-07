@@ -29,13 +29,17 @@ class Neighborhood {
   }
 
   meals() {
-    return this.deliveries().map(
-      function(delivery) {
-        return delivery.meal();
-      })
-   }
-}
 
+    const array = this.deliveries()
+    const uniqueMeals = [...new Set(array.map(x => x.mealId))]
+
+    let foundMeals = uniqueMeals.map(id => {
+      return array.find(delivery => delivery.mealId == id)
+    })
+
+    return foundMeals
+  }
+}
 
 class Meal {
   constructor(title, price) {
